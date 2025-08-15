@@ -141,23 +141,19 @@
 
         <script type="text/javascript">
           let hoverTimer;
-
           const videoDiv = document.getElementById('relate3d_image');
 
           function relate3d_start() {
-            // 设置 1 秒延时显示视频
             hoverTimer = setTimeout(() => {
               videoDiv.style.opacity = "1";
-            }, 1000); // 1000ms = 1秒
+            }, 1000);
           }
 
           function relate3d_stop() {
-            // 清除定时器，立即隐藏视频
             clearTimeout(hoverTimer);
             videoDiv.style.opacity = "0";
           }
 
-          // 页面初始隐藏视频
           relate3d_stop();
         </script>
       </td>

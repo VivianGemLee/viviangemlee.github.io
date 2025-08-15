@@ -124,39 +124,33 @@
     <tr onmouseout="relate3d_stop()" onmouseover="relate3d_start()" bgcolor="#ffffd0">
       <!-- 左侧视频/图片 -->
       <td style="padding:16px;width:20%;vertical-align:middle;">
-        <div class="one" style="width:160px; height:200px; position: relative;"
-          onmouseenter="relate3d_start()" onmouseleave="relate3d_stop()">
+        <div class="one" style="width:160px; height:200px; position: relative;">
           <!-- 视频容器 -->
-          <div class="two" id="relate3d_image"
-            style="position:absolute; top:0; left:0; width:100%; height:100%;
-                    opacity:0; pointer-events:none; transition: opacity 0.3s;">
-            <a href="video/relate3d.mp4" data-lightbox="video" data-title="RELATE3D Video">
+          <div class="two" id="relate3d_image" style="position:absolute; top:0; left:0; width:100%; height:100%;">
+            <!-- <video width="100%" height="100%" muted autoplay loop style="object-fit: contain; background-color: #ffffd0;">
+              <source src="video/relate3d.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video> -->
+            <a href="video/relate3d.mp4" data-lightbox="project" data-title="RELATE3D Video">
               <video width="100%" height="100%" muted autoplay loop style="object-fit: contain; background-color: #ffffd0;">
                 <source src="video/relate3d.mp4" type="video/mp4">
               </video>
             </a>
           </div>
           <!-- 默认显示图片 -->
-          <a href="images/relate3d.jpg" data-lightbox="image" data-title="RELATE3D">
+          <!-- <img src="images/relate3d.jpg" width="160" height="200" style="object-fit: contain; background-color: #ffffd0;"> -->
+           <a href="images/relate3d.jpg" data-lightbox="project" data-title="RELATE3D">
             <img src="images/relate3d.jpg" width="160" height="200" style="object-fit: contain; background-color: #ffffd0;">
           </a>
         </div>
 
         <script type="text/javascript">
-          let hoverTimer;
-          const videoDiv = document.getElementById('relate3d_image');
-
           function relate3d_start() {
-            hoverTimer = setTimeout(() => {
-              videoDiv.style.opacity = "1";
-              videoDiv.style.pointerEvents = "auto"; // 视频可点击
-            }, 1000); // 1秒延迟
+            document.getElementById('relate3d_image').style.opacity = "1";
           }
 
           function relate3d_stop() {
-            clearTimeout(hoverTimer);
-            videoDiv.style.opacity = "0";
-            videoDiv.style.pointerEvents = "none"; // 禁止覆盖鼠标点击
+            document.getElementById('relate3d_image').style.opacity = "0";
           }
 
           relate3d_stop();

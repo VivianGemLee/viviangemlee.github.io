@@ -144,20 +144,25 @@
         <script type="text/javascript">
           let hoverTimer;
           const videoDiv = document.getElementById('relate3d_image');
+          let videoVisible = false; // 新增状态变量
 
           function relate3d_start() {
-            hoverTimer = setTimeout(() => {
-              videoDiv.style.opacity = "1";
-              videoDiv.style.pointerEvents = "auto"; // 允许点击视频
-            }, 1000);
+            // 如果视频已经显示，悬停不再重复触发
+            if (!videoVisible) {
+              hoverTimer = setTimeout(() => {
+                videoDiv.style.opacity = "1";
+                videoDiv.style.pointerEvents = "auto"; // 允许点击视频
+                videoVisible = true;
+              }, 1000); // 1秒延迟
+            }
           }
 
           function relate3d_stop() {
             clearTimeout(hoverTimer);
             videoDiv.style.opacity = "0";
             videoDiv.style.pointerEvents = "none"; // 禁止覆盖鼠标点击
+            videoVisible = false; // 鼠标移开后重置状态
           }
-
 
           relate3d_stop();
         </script>
